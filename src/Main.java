@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Выберите одну из операций: 1. Добавить, 2. Показать, 3. Удалить");
+            System.out.println("Выберите одну из операций: 1. Добавить, 2. Показать, 3. Удалить, 4. Поиск");
             int operationNumber = 0;
             String input = scanner.nextLine();
             operationNumber = Integer.parseInt(input);
@@ -35,10 +35,10 @@ public class Main {
                 String deletingPosition = scanner.nextLine();
                 try {
                     int index = Integer.parseInt(deletingPosition);
-                    System.out.println("Покупка " + list.get(index - 1) + " удалена");
                     for (int i = 0; i < list.size(); i++) {
                         if (i == (index - 1)) {
                             list.remove(i);
+                            System.out.println("Покупка " + list.get(index - 1) + " удалена");
                         }
                     }
                 } catch (NumberFormatException e) {
@@ -50,6 +50,16 @@ public class Main {
                     }
                 }
 
+            } else if (operationNumber == 4 ){
+                System.out.println("Введите текст для поиска: ");
+                String searchShopping = scanner.nextLine();
+                String queryLower = searchShopping.toLowerCase();
+                for (int i = 0; i < list.size(); i++) {
+                    String listLower = list.get(i).toLowerCase();
+                    if (listLower.contains(queryLower)){
+                        System.out.println("Найдено " + (i + 1) + " " + list.get(i));
+                    }
+                }
             }
         }
     }
