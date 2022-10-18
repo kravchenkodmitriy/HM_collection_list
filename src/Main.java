@@ -50,13 +50,13 @@ public class Main {
                     }
                 }
 
-            } else if (operationNumber == 4 ){
+            } else if (operationNumber == 4) {
                 System.out.println("Введите текст для поиска: ");
                 String searchShopping = scanner.nextLine();
                 String queryLower = searchShopping.toLowerCase();
                 for (int i = 0; i < list.size(); i++) {
                     String listLower = list.get(i).toLowerCase();
-                    if (listLower.contains(queryLower)){
+                    if (listLower.contains(queryLower)) {
                         System.out.println("Найдено " + (i + 1) + " " + list.get(i));
                     }
                 }
